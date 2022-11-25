@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $.get("http://www.omdbapi.com/?s=batman&apikey=d8461f2b", function (data) {
+    $.get("https://www.omdbapi.com/?s=batman&apikey=d8461f2b", function (data) {
         let movies = data?.Search
         let output = ""
         $.each(movies, (index, movie) => {
@@ -23,7 +23,7 @@ $(document).ready(function () {
 })
 
 function getMovies(search_value) {
-    const url=`http://www.omdbapi.com/?s=${search_value}&apikey=d8461f2b`
+    const url=`https://www.omdbapi.com/?s=${search_value}&apikey=d8461f2b`
     axios.get(url)
         .then((response) => {
             let movies = response?.data?.Search
@@ -61,7 +61,7 @@ $("#movies").on("click",('.movie-href'),function (e) {
 
 function getMovie() {
     let movie_id = sessionStorage.getItem('movieId')
-    const url=`http://www.omdbapi.com/?i=${movie_id}&apikey=d8461f2b`
+    const url=`https://www.omdbapi.com/?i=${movie_id}&apikey=d8461f2b`
     axios.get(url)
         .then((response) => {
             let movie = response.data
@@ -92,7 +92,7 @@ function getMovie() {
           ${movie.Plot}
           <hr />
           <a
-            href="http://imdb.com/title/${movie.imdbID}"
+            href="https://imdb.com/title/${movie.imdbID}"
             target="_blank"
             class="btn btn-primary"
             >View IMDB</a
