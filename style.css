@@ -14,3 +14,12 @@
 #movies .col-md-4 .well img{
     height: 70%;
 }
+
+.mycard{
+    border: 2px solid black;
+}
+
+#movie img{
+    width: 100%;
+    height: auto;
+}
