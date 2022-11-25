@@ -1,0 +1,23 @@
+{
+  "name": "Movie-App-Jquery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FridahWatetuMuthoni/Movie-App-Jquery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FridahWatetuMuthoni/Movie-App-Jquery/issues"
+  },
+  "homepage": "https://github.com/FridahWatetuMuthoni/Movie-App-Jquery#readme",
+  "dependencies": {
+    "axios": "^1.2.0"
+  }
+}

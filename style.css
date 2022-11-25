@@ -1,0 +1,16 @@
+.logo{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#movies .col-md-4 .well{
+    height:390px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#movies .col-md-4 .well img{
+    height: 70%;
+}
