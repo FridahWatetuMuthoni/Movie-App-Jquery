@@ -23,7 +23,14 @@ $(document).ready(function () {
 })
 
 function getMovies(search_value) {
-    const url=`https://www.omdbapi.com/?s=${search_value}&apikey=d8461f2b`
+  let value;
+  if (search_value.trim()) {
+    value=search_value
+  }
+  else {
+    value='vampire'
+  }
+    const url=`https://www.omdbapi.com/?s=${value}&apikey=d8461f2b`
     axios.get(url)
         .then((response) => {
             let movies = response?.data?.Search
