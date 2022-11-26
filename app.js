@@ -29,18 +29,45 @@ function getMovies(search_value) {
             let movies = response?.data?.Search
             let output=""
             //iterating thru the movies array
-            $.each(movies, (index, movie) => {
+          $.each(movies, (index, movie) => {
+
+            let image;
+            if (movie.Poster == "N/A") {
+              image="./image.jpg"
+            }
+            else {
+              image=movie.Poster
+            }
+
                 output += `
         <div class="col-md-4 shadow p-3">
           <div class="well center">
-            <img src="${movie.Poster}" class="img-fluid" />
+            <img src="${image}" class="img-fluid" />
             <h6 class="mt-1">${movie.Title}</h6>
             <a  data-id="${movie.imdbID}" class="btn btn-primary movie-href" href="#">Movie Details</a>
           </div>
         </div>
                 `
             });
-            $('#movies').html(output)
+          
+          let not_found = `
+          <section class="w-100 notfound">
+            <div class="card border-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header  w-100">Movies Info</div>
+  <div class="card-body">
+    <h4 class="card-title">${search_value}</h4>
+    <p class="card-text"> We dont  currently have ${search_value} in our database please check your spelling</p>
+  </div>
+</div>
+          </section>
+          `
+          if (movies) { 
+              $('#movies').html(output)
+          }
+          else {
+          $('#movies').html(not_found)
+          }
+          
         })
         .catch(err => {
         console.log(err)
@@ -65,7 +92,14 @@ function getMovie() {
     axios.get(url)
         .then((response) => {
             let movie = response.data
-            console.log(movie)
+          console.log(movie)
+            let image;
+            if (movie.Poster == "N/A") {
+              image="./image.jpg"
+            }
+            else {
+              image=movie.Poster
+            }
             let output = `
     <div class="card mb-3 p-3">
       <h3 class="card-header my-3">${movie.Title}</h3>
@@ -73,7 +107,7 @@ function getMovie() {
       </div>
       <section class="row g-3">
       <div class="image col-md-4">
-        <img src="${movie.Poster}" class="image-fluid">
+        <img src="${image}" class="image-fluid">
       </div>
       <ul class="list-group col-md-8">
               <li class="list-group-item"><strong>Genre:</strong> ${movie.Genre}</li>
